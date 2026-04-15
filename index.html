@@ -1,13 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página WEB - DEMONSTRAÇÃO</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div id="geral">
-        
-    </div>  
+        <h1> CADASTRO </h1>
+
+        <div id="div-form">
+            <form name="formulario" id="formulario">
+
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" class="input-txt" maxlength="100" required placeholder="Nome">
+
+                <label for="sexo">Sexo</label>
+                <div id="div-radios">
+                    <input type="radio" name="sexo" id="sexo-m" class="input-radio" required value="M"> <span class="rotulo">Masculino</span>
+
+                    <input type="radio" name="sexo" id="sexo-f" class="input-radio" required value="F"> <span class="rotulo">Feminino</span>
+                </div>
+
+                <label for="data-nascimento">Data Nascimento</label>
+                <input type="date" name="data-nascimento" id="data-nascimento" class="input-num" maxlength="14"
+                    required>
+
+                <label for="peso">Peso</label>
+                <input type="text" name="peso" id="peso" class="input-num" maxlength="100" required placeholder="peso">
+
+                <label for="altura">Altura</label>
+                <input type="text" name="altura" id="altura" class="input-num" maxlength="100" required
+                    placeholder="Altura">
+
+                <div id="div-btns">
+                    <button type="submit" id="btn-enviar"> Enviar </button>
+                    <button type="reset" id="btn-limpar"> Limpar </button>
+                </div>
+
+            </form>
+        </div>
+
+        <div id="div-lista">
+            <div class="div-pessoa-item">
+                1 - Maria flor - F - 25anos - 20.05 - 1,75 - Normal
+            </div>
+
+            <div class="div-pessoa-item">
+                2 - Maria flor - F - 25anos - 20.05 - 1,75 - Normal
+            </div>
+        </div>
+
+    </div>
 </body>
+
 </html>

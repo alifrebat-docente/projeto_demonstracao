@@ -1,0 +1,60 @@
+label {
+    display: block;
+    padding: 15px 0px;
+    font-weight: bold;
+}
+
+input {
+    height: 35px;
+    padding: 0px 10px;
+    border-radius: 6px;
+    font-size: 0.9em;
+}
+
+#div-radios{
+    display: flex;
+    align-items: center;
+    justify-content:stretch;
+}
+
+.rotulo{
+    margin: 0px 10px;
+}
+
+input[type=radio]{
+    width: 20px;
+    cursor: pointer;
+}
+
+.input-txt {
+    width: 450px;
+}
+
+.input-num {
+    width: 180px
+}
+
+#div-btns {
+    margin: 20px 0px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+button {
+    cursor: pointer;
+    width: 220px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    color: var(--cor02);
+}
+
+#btn-enviar {
+    background-color: var(--cor03);
+}
+
+#btn-limpar{
+    background-color: var(--cor04);
+}

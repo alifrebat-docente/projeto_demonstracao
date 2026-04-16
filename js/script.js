@@ -17,7 +17,9 @@ formulario.addEventListener('submit', (evt) => {
         sexo: dadosPessoa.get('sexo'),
         idade: idade,
         peso: dadosPessoa.get('peso'),
-        altura: dadosPessoa.get('altura')
+        altura: dadosPessoa.get('altura'),
+        imc: calcIMC(peso, altura)
+
     }
 
 
@@ -43,6 +45,12 @@ const calcIdade = (dataNascimento) => {
 }
 
 
+//CALCULANDO IMC
+const calcIMC = (peso, altura)=>{
+    const imc = peso / (altura * altura)
+
+    return imc
+}
 
 //ADICIONAR OBJETO PESSOA
 const addPessoa = (objPessoa) => {

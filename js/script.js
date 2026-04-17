@@ -86,8 +86,9 @@ const addPessoa = (objPessoa) => {
 
 //EXCLUIR OBJETO PESSOA
 const excluirPessoa = (pos) => {
+
     if (pos >= 0) {
-        pessoas.splice(pos, 0)
+        pessoas.splice(pos, 1)
         
         listarPessoa()
     }
@@ -98,12 +99,11 @@ const excluirPessoa = (pos) => {
 const listarPessoa = () => {
     divLista.innerHTML = ''
 
-    let sitClass = ''
     pessoas.forEach((elem, i) => {
         
         const divPessoaItem = document.createElement('div')
         
-        sitClass = elem.imc < 19 ? 'ax' : elem.imc < 25 ? 'n' : elem.imc < 30 ? 'sb' : elem.imc < 35 ? 'o1' : elem.imc < 40 ? 'o2' : 'o3'
+        let sitClass = elem.imc < 19 ? 'ax' : elem.imc < 25 ? 'n' : elem.imc < 30 ? 'sb' : elem.imc < 35 ? 'o1' : elem.imc < 40 ? 'o2' : 'o3'
         
         divPessoaItem.setAttribute('class', `div-pessoa-item ${sitClass}`)
         divPessoaItem.innerHTML = `<span> ${i + 1} - ${elem.nome} - ${elem.sexo} - ${elem.idade}anos -${parseFloat(elem.imc).toFixed(2).replaceAll('.', ',')} - ${elem.situacao}</span>`

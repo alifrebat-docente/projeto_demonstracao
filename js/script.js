@@ -30,8 +30,6 @@ formulario.addEventListener('submit', (evt) => {
         situacao: resultadoSituacao,
     }
 
-    console.log(Pessoa)
-
     addPessoa(Pessoa)
 
     formulario.reset()
@@ -48,11 +46,18 @@ const calcIdade = (dataNascimento) => {
 
     let idade = hoje.getFullYear() - nascimento.getFullYear()
 
-    if ((nascimento > hoje)) {
+    if (nascimento.getMonth() > hoje.getMonth()) {
         idade--
     }
 
     return idade
+}
+
+//CALCULANDO IMC
+const calcIMC = (peso, altura) => {
+    const imc = peso / (altura * altura)
+
+    return imc
 }
 
 //IDENTIFICANDO A SITUAÇÃO
@@ -73,12 +78,6 @@ const situacaoIMC = (imc) => {
 }
 
 
-//CALCULANDO IMC
-const calcIMC = (peso, altura) => {
-    const imc = peso / (altura * altura)
-
-    return imc
-}
 
 //ADICIONAR OBJETO PESSOA
 const addPessoa = (objPessoa) => {
@@ -86,6 +85,8 @@ const addPessoa = (objPessoa) => {
         pessoas.push(objPessoa)
     }
 }
+
+
 
 //LISTAR PESSOAS
 const listarPessoa = () =>{

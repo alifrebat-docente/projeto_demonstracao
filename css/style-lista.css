@@ -7,7 +7,6 @@
     align-items: center;
     justify-content: space-between;
     color: var(--cor01);
-    border-radius: 8px;
 }
 
 .div-pessoa-item {
@@ -21,28 +20,26 @@
     margin: 0px 10px;
 }
 
-.ax{
-    background-color: #e4f317 ;
+.ax {
+    border-left: 5px solid #f5dbca;
 }
 
-.n{
-    background-color: #85b6f5 ;
+.n {
+    border-left: 5px solid #05da57;
 }
 
-.sb{
-    background-color: #83810d;
+.sb {
+    border-left: 5px solid #f8ed4d;
 }
 
-.o1{
-    background-color: #e99d9d;
+.o1 {
+    border-left: 5px solid #f79e9e;
 }
 
-.o2{
-    color: #fffefe;
-    background-color: #e45252;
+.o2 {
+    border-left: 5px solid #e45252;
 }
 
-.o3{
-    color: #fffefe;
-    background-color: #7c0f0f;
+.o3 {
+    border-left: 5px solid #7c0f0f;
 }

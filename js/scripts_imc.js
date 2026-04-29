@@ -26,6 +26,8 @@ btnEnviar.addEventListener('click', async (evt) => {
 
     formImc.reset()
 
+    listarPessoa()
+
 })
 
 //LISTA OS DADOS NA DIV LISTA

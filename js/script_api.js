@@ -23,6 +23,7 @@ const salvarDados = async (objPessoa) => {
     }
 }
 
+//CONSULTAR PESSOAS
 const consultarPessoas = async () => {
     const endPoint = 'https://localhost:7015/api/Pessoa'
 
@@ -39,5 +40,22 @@ const consultarPessoas = async () => {
 
 }
 
-export { salvarDados, consultarPessoas }
+//EXCLUIR PESSOA 
+const excluirPessoa = async (idPessoa) => {
+    const endPoint = `https://localhost:7015/api/Pessoa/${idPessoa}`
+
+    try {
+        const resposta_status = await fetch(endPoint, {
+            method: 'DELETE',
+            headers: { "Content-Type": "application/json" }
+        })
+
+        return resposta_status
+
+    } catch (erro) {
+        console.error("Erro ao criar:", erro)
+    }
+}
+
+export { salvarDados, consultarPessoas, excluirPessoa }
 

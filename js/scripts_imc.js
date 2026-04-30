@@ -24,8 +24,6 @@ btnEnviar.addEventListener('click', async (evt) => {
 
     const resultadoSalvar = await salvarDados(objPessoa)
 
-    console.log('CADASTRO ',resultadoSalvar.status())
-
     formImc.reset()
 
     listarPessoa()
@@ -34,33 +32,96 @@ btnEnviar.addEventListener('click', async (evt) => {
 
 //LISTA OS DADOS NA DIV LISTA
 const listarPessoa = async () => {
+
     divLista.innerHTML = ''
 
-    pessoas =  await consultarPessoas()
+    pessoas = await consultarPessoas()
 
     pessoas.forEach((elem, i) => {
+
+        let imc = calcIMC(elem.peso, elem.altura)
+
+        let sitClass = imc < 19 ? 'ax' : imc < 25 ? 'n' : imc < 30 ? 'sb' : imc < 35 ? 'o1' : imc < 40 ? 'o2' : 'o3'
+
         const divPessoa = document.createElement('div')
-        divPessoa.setAttribute('class', 'div-pessoa-item')
-        divPessoa.innerHTML = `<span> ${elem.idpessoa} - ${elem.nome} - ${elem.sexo} - ${elem.data_nascimento} - ${elem.peso} - ${elem.altura} - ${(parseFloat(elem.peso)/(parseFloat(elem.altura) * parseFloat(elem.altura))).toFixed(2).replaceAll('.',',')} - FALTA SITUAÇÃO </span>`
+        divPessoa.setAttribute('class', `div-pessoa-item ${sitClass}`)
+        divPessoa.innerHTML = `<span class='txtNome'> ${i + 1}  ${elem.nome} </span> <span> Sexo: ${elem.sexo},  Idade: ${calcIdade(elem.data_nascimento)}anos,  Peso: ${elem.peso}, Altura: ${elem.altura} </span> <span  class='txtImc'> IMC: ${imc.toFixed(2).replaceAll('.', ',')} </span> <span class='txtImc'> Situação: ${situacaoIMC(imc)} </span>`
+
+        const divBtns = document.createElement('div')
 
         const btnExcluir = document.createElement('img')
         btnExcluir.setAttribute('src', 'imagens/btn_excluir.png')
         btnExcluir.setAttribute('alt', 'Excluir')
         btnExcluir.setAttribute('title', 'Excluir')
 
-        btnExcluir.addEventListener('click',()=>{
-            if(confirm(`Deseja excluir ${elem.nome}?`)){
+        btnExcluir.addEventListener('click', () => {
+            if (confirm(`Deseja excluir ${elem.nome}?`)) {
                 excluirPessoa(elem.idpessoa)
                 window.location = 'index.html'
             }
         })
 
-        divPessoa.appendChild(btnExcluir)
+        divBtns.appendChild(btnExcluir)
+
+        const btnAlterar = document.createElement('img')
+        btnAlterar.setAttribute('src', 'imagens/btn_alterar.png')
+        btnAlterar.setAttribute('alt', 'Alterar')
+        btnAlterar.setAttribute('title', 'Alterar')
+
+        btnAlterar.addEventListener('click', () => {
+            if (confirm(`Deseja alterar ${elem.nome}?`)) {
+                carregaFormPessoa(elem)
+                window.location = 'index.html'
+            }
+        })
+
+        divBtns.appendChild(btnAlterar)
+
+        divPessoa.appendChild(divBtns)
 
         divLista.appendChild(divPessoa)
-        
+
     })
 
+}
+
+//CALCULANDO A IDADE
+const calcIdade = (dataNascimento) => {
+
+    const nascimento = new Date(dataNascimento)
+    const hoje = new Date()
+
+    let idade = hoje.getFullYear() - nascimento.getFullYear()
+
+    if (nascimento.getMonth() > hoje.getMonth()) {
+        idade--
+    }
+
+    return idade
+}
+
+//CALCULANDO IMC
+const calcIMC = (peso, altura) => {
+    const imc = peso / (altura * altura)
+
+    return imc
+}
+
+//IDENTIFICANDO A SITUAÇÃO
+const situacaoIMC = (imc) => {
+    if (imc < 18.5) {
+        return 'Abaixo do peso'
+    } else if (imc < 25) {
+        return 'Normal'
+    } else if (imc < 30) {
+        return 'Sobrepeso'
+    } else if (imc < 35) {
+        return 'Obesidade I'
+    } else if (imc < 40) {
+        return 'Obesidade II'
+    } else {
+        return 'Obesidade III'
+    }
 }
 
 listarPessoa()

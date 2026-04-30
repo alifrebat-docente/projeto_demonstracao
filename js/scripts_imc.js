@@ -22,7 +22,7 @@ btnEnviar.addEventListener('click', async (evt) => {
         altura: formPessoa.get('altura').replaceAll(',', '.')
     }
 
-    const resultadoSalvar = await salvarDados(objPessoa)
+
 
     formImc.reset()
 
@@ -70,7 +70,7 @@ const listarPessoa = async () => {
 
         btnAlterar.addEventListener('click', () => {
             carregaForm(elem)
-        }) 
+        })
 
         divBtns.appendChild(btnAlterar)
 
@@ -130,9 +130,21 @@ const carregaForm = (objPessoa) => {
     document.querySelector('#data-nascimento').value = objPessoa.data_nascimento
     document.querySelector('#peso').value = objPessoa.peso
     document.querySelector('#altura').value = objPessoa.altura
-
 }
 
+//CADASTRAR PESSOA
+const cadastroPessoa = async (objPessoa) => {
+    const resultadoSalvar = await salvarDados(objPessoa)
+
+    return resultadoSalvar
+}
+
+//ALTERAR PESSOA
+const alterarPessoa = async (objPessoa) => {
+    const resultadoAlterar = await alteraDados(objPessoa)
+
+    return resultadoAlterar
+}
 
 
 

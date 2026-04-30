@@ -1,4 +1,4 @@
-import { salvarDados, consultarPessoas, excluirPessoa } from "./script_api.js"
+import { salvarDados, consultarPessoas, excluirPessoa, alterarDados } from "./script_api.js"
 
 //PEGANDO ELEMENTOS DO DOM
 const formImc = document.querySelector("#formulario")
@@ -15,6 +15,7 @@ btnEnviar.addEventListener('click', async (evt) => {
     const formPessoa = new FormData(formImc)
 
     const objPessoa = {
+        idpessoa: sessionStorage.getItem('objPessoaId') === null ? 0 : sessionStorage.getItem('objPessoaId'),
         nome: formPessoa.get('nome'),
         sexo: formPessoa.get('sexo'),
         data_nascimento: formPessoa.get('data-nascimento'),
@@ -22,16 +23,17 @@ btnEnviar.addEventListener('click', async (evt) => {
         altura: formPessoa.get('altura').replaceAll(',', '.')
     }
 
-    if (sessionStorage.getItem('objPessoa') === null) {
+    if (sessionStorage.getItem('objPessoaId') === null)  {
         cadastroPessoa(objPessoa)
-    }else{
-        alert('alterar em construção')
+    } else {
+        console.log(objPessoa)
+
+         if (confirm(`Alterar Pessoa?`)) {
+             alterarPessoa(objPessoa)
+         }
     }
 
     formImc.reset()
-
-    listarPessoa()
-
 })
 
 //LISTA OS DADOS NA DIV LISTA
@@ -74,6 +76,9 @@ const listarPessoa = async () => {
 
         btnAlterar.addEventListener('click', () => {
             carregaForm(elem)
+            window.location.href='#tito'
+
+            sessionStorage.setItem('objPessoaId', elem.idpessoa)
         })
 
         divBtns.appendChild(btnAlterar)
@@ -140,17 +145,21 @@ const carregaForm = (objPessoa) => {
 const cadastroPessoa = async (objPessoa) => {
     const resultadoSalvar = await salvarDados(objPessoa)
 
+    listarPessoa()
+
     return resultadoSalvar
 }
 
 //ALTERAR PESSOA
 const alterarPessoa = async (objPessoa) => {
-    const resultadoAlterar = await alteraDados(objPessoa)
+    const resultadoAlterar = await alterarDados(objPessoa)
+
+    sessionStorage.removeItem('objPessoaId')
+
+    listarPessoa()
 
     return resultadoAlterar
 }
-
-
 
 
 

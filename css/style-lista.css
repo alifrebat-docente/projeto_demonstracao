@@ -43,31 +43,38 @@
 }
 
 .ax {
-    border-left: 10px solid #f5dbca;
-    border-bottom: 8px solid #f5dbca;;
+    border-left: 10px solid #cfa68b;
+    border-bottom: 8px solid #cfa68b;
+    background: linear-gradient(20deg, #f5dbca, #ffffff);
 }
 
 .n {
-    border-left: 10px solid #05da57;
-    border-bottom: 8px solid #05da57;;
+    border-left: 10px solid #09933e;
+    border-bottom: 8px solid #09933e;
+    background: linear-gradient(20deg, #05da57, #ffffff);    
 }
 
 .sb {
-    border-left: 10px solid #f8ed4d;
-    border-bottom: 8px solid #f8ed4d;;
+    border-left: 10px solid #9a9331;
+    border-bottom: 8px solid #9a9331;
+    background: linear-gradient(20deg, #f8ed4d, #ffffff);  
 }
 
 .o1 {
-    border-left: 10px solid #f79e9e;
-    border-bottom: 8px solid #f79e9e;;
+    border-left: 10px solid #bb7272;
+    border-bottom: 8px solid #bb7272;
+    background: linear-gradient(20deg, #f79e9e, #ffffff);  
 }
 
 .o2 {
-    border-left: 10px solid #e45252;
-    border-bottom: 8px solid #e45252;;
+    border-left: 10px solid #993939;
+    border-bottom: 8px solid #993939;
+    background: linear-gradient(20deg, #e45252, #ffffff);  
 }
 
 .o3 {
-    border-left: 10px solid #7c0f0f;
-    border-bottom: 8px solid #7c0f0f;;
+    border-left: 10px solid #f66e6e;
+    border-bottom: 8px solid #f66e6e;
+    color: #ffffff;
+    background: linear-gradient(20deg, #000000, #ffffff);  
 }

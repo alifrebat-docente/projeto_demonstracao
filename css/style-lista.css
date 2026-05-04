@@ -1,4 +1,4 @@
-#div-lista{
+#div-lista {
     min-height: 500px;
 }
 
@@ -8,21 +8,21 @@
     padding: 0px 10px;
     height: 40px;
     display: flex;
-    align-items:flex-start;
+    align-items: flex-start;
     flex-direction: column;
     justify-content: left;
     color: var(--cor01);
     border-radius: 8px;
 }
 
-.txtNome{
+.txtNome {
     font-size: 1.5em;
     text-transform: uppercase;
     font-weight: bold;
     padding: 5px 0px;
 }
 
-.txtImc{
+.txtImc {
     font-size: 1em;
     text-transform: uppercase;
     font-weight: bold;
@@ -38,43 +38,42 @@
     width: 15px;
     height: 15px;
     margin: 0px 10px;
-
-    
 }
 
 .ax {
     border-left: 10px solid #cfa68b;
     border-bottom: 8px solid #cfa68b;
-    background: linear-gradient(20deg, #f5dbca, #ffffff);
+    background-color: #f8ece4;
 }
 
 .n {
     border-left: 10px solid #09933e;
     border-bottom: 8px solid #09933e;
-    background: linear-gradient(20deg, #05da57, #ffffff);    
+
 }
 
 .sb {
     border-left: 10px solid #9a9331;
     border-bottom: 8px solid #9a9331;
-    background: linear-gradient(20deg, #f8ed4d, #ffffff);  
+    background-color: #ffe602;
 }
 
 .o1 {
     border-left: 10px solid #bb7272;
     border-bottom: 8px solid #bb7272;
-    background: linear-gradient(20deg, #f79e9e, #ffffff);  
+    background-color: #fcb0b0;
 }
 
 .o2 {
     border-left: 10px solid #993939;
     border-bottom: 8px solid #993939;
-    background: linear-gradient(20deg, #e45252, #ffffff);  
+    color: #ffffff;
+    background-color: #750e0e;
 }
 
 .o3 {
     border-left: 10px solid #f66e6e;
     border-bottom: 8px solid #f66e6e;
     color: #ffffff;
-    background: linear-gradient(20deg, #000000, #ffffff);  
+    background-color: #000000;
 }

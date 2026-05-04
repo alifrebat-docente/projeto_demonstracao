@@ -143,7 +143,7 @@ const situacaoIMC = (imc) => {
 const carregaForm = (objPessoa) => {
     document.querySelector('#nome').value = objPessoa.nome
 
-    objPessoa.sexo === 'M' ? document.querySelector('#sexo-m').checked = true : document.querySelector('#sexo-f').checked = true
+    document.querySelector('#sexo').value = objPessoa.sexo
 
     document.querySelector('#data-nascimento').value = objPessoa.data_nascimento
     document.querySelector('#peso').value = objPessoa.peso

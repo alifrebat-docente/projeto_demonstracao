@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="js/scripts_imc.js" type="module" defer></script>
+    <script src="js/scripts_imc02.js" type="module" defer></script>
 </head>
 
 <body>
@@ -22,13 +22,14 @@
                 <input type="text" name="nome" id="nome" class="input-txt" maxlength="100" required placeholder="Nome">
 
                 <label for="sexo">Sexo</label>
-                <div id="div-radios">
-                    <input type="radio" name="sexo" id="sexo-m" class="input-radio" required value="M"> <span
-                        class="rotulo">Masculino</span>
-
-                    <input type="radio" name="sexo" id="sexo-f" class="input-radio" required value="F"> <span
-                        class="rotulo">Feminino</span>
-                </div>
+                <select name="sexo" id="sexo" class="select" required>
+                    <option value="">Selecione o Sexo</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                    <option value="R">Não binário</option>
+                    <option value="O">Outro</option>
+                    <option value="N">Prefiro não informar</option>
+                </select>
 
                 <label for="data-nascimento">Data Nascimento</label>
                 <input type="date" name="data-nascimento" id="data-nascimento" class="input-num" maxlength="14"
@@ -42,7 +43,7 @@
                     placeholder="Altura">
 
                 <div id="div-btns">
-                    <button type="submit" id="btn-enviar"> CADASTRAR </button>
+                    <button type="submit" id="btn-enviar"> Enviar </button>
                     <button type="reset" id="btn-limpar"> Limpar </button>
                 </div>
 
@@ -56,28 +57,28 @@
             </div>
 
             <div class="div-pessoa-item n">
-               <span> 2 - Maria flor - F - 25anos - 20.05 - 1,75 - Normal </span><img src="imagens/btn_excluir.png" alt="Remover"
-                    title="remover">
+                <span> 2 - Maria flor - F - 25anos - 20.05 - 1,75 - Normal </span><img src="imagens/btn_excluir.png"
+                    alt="Remover" title="remover">
             </div>
 
             <div class="div-pessoa-item sb">
-                <span> 2 - Maria flor - F - 25anos - 20.05 - 1,75 - Sobrepeso </span><img src="imagens/btn_excluir.png" alt="Remover"
-                    title="remover">
+                <span> 2 - Maria flor - F - 25anos - 20.05 - 1,75 - Sobrepeso </span><img src="imagens/btn_excluir.png"
+                    alt="Remover" title="remover">
             </div>
 
             <div class="div-pessoa-item o1">
-                <span> 2 - Maria flor - F - 25anos - 20.05 - 1,75 - Obesidade I </span> <img src="imagens/btn_excluir.png"
-                    alt="Remover" title="remover">
+                <span> 2 - Maria flor - F - 25anos - 20.05 - 1,75 - Obesidade I </span> <img
+                    src="imagens/btn_excluir.png" alt="Remover" title="remover">
             </div>
 
             <div class="div-pessoa-item o2">
-                <span> 1 - Maria flor - F - 25anos - 20.05 - 1,75 - Obesidade II </span> <img src="imagens/btn_excluir.png"
-                    alt="Remover" title="remover">
+                <span> 1 - Maria flor - F - 25anos - 20.05 - 1,75 - Obesidade II </span> <img
+                    src="imagens/btn_excluir.png" alt="Remover" title="remover">
             </div>
 
             <div class="div-pessoa-item o3">
-                <span> 2 - Maria flor - F - 25anos - 20.05 - 1,75 - Obesidade III </span> <img src="imagens/btn_excluir.png"
-                    alt="Remover" title="remover">
+                <span> 2 - Maria flor - F - 25anos - 20.05 - 1,75 - Obesidade III </span> <img
+                    src="imagens/btn_excluir.png" alt="Remover" title="remover">
             </div>
 
         </div>

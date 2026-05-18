@@ -38,7 +38,7 @@ btnEnviar.addEventListener('click', async (evt) => {
 })
 
 btnLimpar.addEventListener('click', () => {
-    if( sessionStorage.getItem('objPessoaId') != null){
+    if (sessionStorage.getItem('objPessoaId') !== null) {
         sessionStorage.removeItem('objPessoaId')
         btnEnviar.innerHTML = 'CADASTRAR'
     }
@@ -143,7 +143,7 @@ const situacaoIMC = (imc) => {
 const carregaForm = (objPessoa) => {
     document.querySelector('#nome').value = objPessoa.nome
 
-    objPessoa.sexo === 'M' ? document.querySelector('#sexo-m').checked = true : document.querySelector('#sexo-f').checked = true
+    document.querySelector('#sexo').value = objPessoa.sexo
 
     document.querySelector('#data-nascimento').value = objPessoa.data_nascimento
     document.querySelector('#peso').value = objPessoa.peso

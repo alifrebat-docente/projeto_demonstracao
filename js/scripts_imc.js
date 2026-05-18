@@ -29,7 +29,7 @@ btnEnviar.addEventListener('click', async (evt) => {
     if (id_pessoa === 0) {
         cadastroPessoa(objPessoa)
     } else {
-        if (confirm(`Alterar Pessoa?`)) {
+        if (confirm(`Deseja alterar os dados de ${objPessoa.nome}?`)) {
             alterarPessoa(objPessoa)
         }
     }
@@ -38,10 +38,9 @@ btnEnviar.addEventListener('click', async (evt) => {
 })
 
 btnLimpar.addEventListener('click', () => {
-    if( sessionStorage.getItem('objPessoaId') != null){
+    if( sessionStorage.getItem('objPessoaId') !== null){
         sessionStorage.removeItem('objPessoaId')
     }
-        
 })
 
 //LISTA OS DADOS NA DIV LISTA
@@ -55,11 +54,11 @@ const listarPessoa = async () => {
 
         let imc = calcIMC(elem.peso, elem.altura)
 
-        let sitClass = imc < 19 ? 'ax' : imc < 25 ? 'n' : imc < 30 ? 'sb' : imc < 35 ? 'o1' : imc < 40 ? 'o2' : 'o3'
+        let sitClass = imc < 18.5 ? 'ax' : imc < 25 ? 'n' : imc < 30 ? 'sb' : imc < 35 ? 'o1' : imc < 40 ? 'o2' : 'o3'
 
         const divPessoa = document.createElement('div')
         divPessoa.setAttribute('class', `div-pessoa-item ${sitClass}`)
-        divPessoa.innerHTML = `<span class='txtNome'> ${i + 1}  ${elem.nome} </span> <span> Sexo: ${elem.sexo},  Idade: ${calcIdade(elem.data_nascimento)}anos,  Peso: ${elem.peso}, Altura: ${elem.altura} </span> <span  class='txtImc'> IMC: ${imc.toFixed(2).replaceAll('.', ',')} </span> <span class='txtImc'> Situação: ${situacaoIMC(imc)} </span>`
+        divPessoa.innerHTML = `<span class='txtNome'> ${i + 1}  ${elem.nome} </span> <span> Sexo: ${elem.sexo};  Idade: ${calcIdade(elem.data_nascimento)}anos;  Peso: ${elem.peso}kg; Altura: ${elem.altura}m </span> <span  class='txtImc'> IMC: ${imc.toFixed(2).replaceAll('.', ',')} </span> <span class='txtImc'> Situação: ${situacaoIMC(imc)} </span>`
 
         const divBtns = document.createElement('div')
 

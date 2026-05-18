@@ -1,6 +1,6 @@
 //ADICIONAR NO BANCO DE DADOS
 const salvarDados = async (objPessoa) => {
-    const endPoint = 'https://localhost:7015/api/Pessoa'
+    const endPoint = 'https://localhost:7143/api/Pessoa'
 
     try {
         const resposta = await fetch(
@@ -25,7 +25,7 @@ const salvarDados = async (objPessoa) => {
 
 //CONSULTAR PESSOAS
 const consultarPessoas = async () => {
-    const endPoint = 'https://localhost:7015/api/Pessoa'
+    const endPoint = 'https://localhost:7143/api/Pessoa'
 
     try {
         return await fetch(endPoint)
@@ -42,7 +42,7 @@ const consultarPessoas = async () => {
 
 //EXCLUIR PESSOA 
 const excluirPessoa = async (idPessoa) => {
-    const endPoint = `https://localhost:7015/api/Pessoa/${idPessoa}`
+    const endPoint = `https://localhost:7143/api/Pessoa/${idPessoa}`
 
     try {
         const resposta_status = await fetch(endPoint, {
@@ -59,7 +59,7 @@ const excluirPessoa = async (idPessoa) => {
 
 //ADICIONAR NO BANCO DE DADOS
 const alterarDados = async (objPessoa) => {
-    const endPoint = `https://localhost:7015/api/Pessoa/${objPessoa.idpessoa}`
+    const endPoint = `https://localhost:7143/api/Pessoa/${objPessoa.idpessoa}`
 
     try {
         const resposta = await fetch(

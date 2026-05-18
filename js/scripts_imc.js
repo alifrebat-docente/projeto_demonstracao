@@ -21,7 +21,7 @@ btnEnviar.addEventListener('click', async (evt) => {
         idpessoa: id_pessoa,
         nome: formPessoa.get('nome'),
         sexo: formPessoa.get('sexo'),
-        data_nascimento: formPessoa.get('data-nascimento'),
+        dataNascimento: formPessoa.get('data-nascimento'),
         peso: formPessoa.get('peso'),
         altura: formPessoa.get('altura').replaceAll(',', '.')
     }
@@ -59,7 +59,7 @@ const listarPessoa = async () => {
 
         const divPessoa = document.createElement('div')
         divPessoa.setAttribute('class', `div-pessoa-item ${sitClass}`)
-        divPessoa.innerHTML = `<span class='txtNome'> ${i + 1}  ${elem.nome} </span> <span> Sexo: ${elem.sexo};  Idade: ${calcIdade(elem.data_nascimento)}anos;  Peso: ${elem.peso}kg; Altura: ${elem.altura}m </span> <span  class='txtImc'> IMC: ${imc.toFixed(2).replaceAll('.', ',')} </span> <span class='txtImc'> Situação: ${situacaoIMC(imc)} </span>`
+        divPessoa.innerHTML = `<span class='txtNome'> ${i + 1}  ${elem.nome} </span> <span> Sexo: ${elem.sexo};  Idade: ${calcIdade(elem.dataNascimento)}anos;  Peso: ${elem.peso}kg; Altura: ${elem.altura}m </span> <span  class='txtImc'> IMC: ${imc.toFixed(2).replaceAll('.', ',')} </span> <span class='txtImc'> Situação: ${situacaoIMC(imc)} </span>`
 
         const divBtns = document.createElement('div')
 
@@ -145,7 +145,7 @@ const carregaForm = (objPessoa) => {
 
     objPessoa.sexo === 'M' ? document.querySelector('#sexo-m').checked = true : document.querySelector('#sexo-f').checked = true
 
-    document.querySelector('#data-nascimento').value = objPessoa.data_nascimento
+    document.querySelector('#data-nascimento').value = objPessoa.dataNascimento
     document.querySelector('#peso').value = objPessoa.peso
     document.querySelector('#altura').value = objPessoa.altura
 }
